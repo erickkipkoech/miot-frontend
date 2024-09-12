@@ -1,10 +1,9 @@
-import { type } from "@testing-library/user-event/dist/type";
 import { SET_MESSAGE, CLEAR_MESSAGE } from "../actions/types";
 
 const initialState = {};
 
-export default function (state = initialState, action) {
-    const { type: payload } = action;
+export default function authReducer (state = initialState, action) {
+    const { type, payload } = action;
     switch (type) {
         case SET_MESSAGE:
             return { message: payload };
