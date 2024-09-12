@@ -1,9 +1,9 @@
 import axios from "axios";
-import API_URL from "../constants/constants.js";
+import API_URL from "../constants/constants";
 
 const register=(username, email, password)=>{
     return axios
-            .post(`${API_URL}/register`,{
+            .post(`${API_URL}register`,{
                 username,
                 email,
                 password
@@ -13,7 +13,7 @@ const register=(username, email, password)=>{
 
 const login=(username,password)=>{
     return axios
-    .post(`${API_URL}/login`,{
+    .post(`${API_URL}login`,{
         username,
         password
     }).then((response)=>{
@@ -26,4 +26,10 @@ const login=(username,password)=>{
 
 const logout=()=>{
     localStorage.removeItem("user");
+};
+
+export default{
+    register,
+    login,
+    logout,
 };
