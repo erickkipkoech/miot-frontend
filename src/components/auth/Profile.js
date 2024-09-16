@@ -1,9 +1,9 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
-import { UseSelector, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 const Profile = () => {
-    const { user: currentUser } = useSelector((state) => state.auth);
+    const currentUser = useSelector((state) => state.auth?.user || null);
 
     if (!currentUser) {
         return <Navigate to={"/login"} />;
