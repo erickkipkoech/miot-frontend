@@ -24,7 +24,7 @@ const login = async (username, password) => {
     if (response.data.response) {
         localStorage.setItem("user", JSON.stringify(response.data));
     }
-    return response.data;
+    return response;
 };
 
 const logout = () => {

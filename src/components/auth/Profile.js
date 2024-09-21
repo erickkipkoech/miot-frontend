@@ -3,9 +3,10 @@ import { Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Profile = () => {
-    const currentUser = useSelector((state) => state.auth?.user || null);
+    const isLoggedIn = useSelector((state) => state.authReducer?.isLoggedIn || false);
+    const currentUser = useSelector((state)=>state.authReducer?.user || null)
 
-    if (!currentUser) {
+    if (!isLoggedIn) {
         return <Navigate to={"/login"} />;
     }
     return (
@@ -16,8 +17,8 @@ const Profile = () => {
                 </h3>
             </header>
             <p>
-                <strong>Token:</strong> {currentUser.accessToken.substring(0, 20)} ...{" "}
-                {currentUser.accessToken.substr(currentUser.accessToken.length - 20)}
+                <strong>Token:</strong> {currentUser.response.substring(0, 20)} ...{" "}
+                {currentUser.response.substr(currentUser.response.length - 20)}
             </p>
             <p>
                 <strong>Id:</strong> {currentUser.id}

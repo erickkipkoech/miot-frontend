@@ -19,7 +19,7 @@ const Login = (props) => {
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
 
-    const { isLoggedIn } = useSelector(state => state.auth?.isLoggedIn || false);
+    const { isLoggedIn } = useSelector(state => state.authReducer?.isLoggedIn || false);
     const message = useSelector(state => state.message || null);
 
     const dispatch = useDispatch();
@@ -45,7 +45,7 @@ const Login = (props) => {
             dispatch(login(username, password))
                 .then(() => {
                     navigate("/profile");
-                    window.location.reload();
+                    //window.location.reload();
                 })
                 .catch(() => {
                     setLoading(false);
