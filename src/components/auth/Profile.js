@@ -3,8 +3,7 @@ import { Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Profile = () => {
-    const isLoggedIn = useSelector((state) => state.authReducer?.isLoggedIn || false);
-    const currentUser = useSelector((state)=>state.authReducer?.user || null)
+    const { isLoggedIn, user } = useSelector((state) => state.authReducer || { isLoggedIn: false, user: null });
 
     if (!isLoggedIn) {
         return <Navigate to={"/login"} />;
@@ -13,23 +12,23 @@ const Profile = () => {
         <div className="container">
             <header className="jumbotron">
                 <h3>
-                    <strong>{currentUser.username}</strong> Profile
+                    <strong>{user.username}</strong> Profile
                 </h3>
             </header>
             <p>
-                <strong>Token:</strong> {currentUser.response.substring(0, 20)} ...{" "}
-                {currentUser.response.substr(currentUser.response.length - 20)}
+                <strong>Token:</strong> {user.response.substring(0, 20)} ...{" "}
+                {user.response.substr(user.response.length - 20)}
             </p>
             <p>
-                <strong>Id:</strong> {currentUser.id}
+                <strong>Id:</strong> {user.id}
             </p>
             <p>
-                <strong>Email:</strong> {currentUser.email}
+                <strong>Email:</strong> {user.email}
             </p>
             <strong>Authorities:</strong>
             <ul>
-                {currentUser.roles &&
-                    currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}
+                {user.roles &&
+                    user.roles.map((role, index) => <li key={index}>{role}</li>)}
             </ul>
         </div>
     );

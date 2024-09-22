@@ -2,8 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Routes, Route, Link, useLocation } from "react-router-dom";
 
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
+import './App.css'
 
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
@@ -47,73 +46,64 @@ const App = () => {
 
   return (
     <div>
-      <nav className="navbar navbar-expand navbar-dark bg-dark">
-        <Link to={"/"} className="navbar-brand">
-          bezKoder
-        </Link>
-        <div className="navbar-nav mr-auto">
-          <li className="nav-item">
-            <Link to={"/home"} className="nav-link">
+      {/* <nav className="bg-gray-900 bg-opacity-100 text-white p-4">
+        <div className="container mx-auto flex justify-between items-center">
+          <Link to={"/"} className="text-xl font-semibold">
+            Nam Kobelebik
+          </Link>
+          <div className="flex space-x-4">
+            <Link to={"/home"} className="text-white hover:text-gray-300">
               Home
             </Link>
-          </li>
 
-          {showModeratorBoard && (
-            <li className="nav-item">
-              <Link to={"/mod"} className="nav-link">
+            {showModeratorBoard && (
+              <Link to={"/mod"} className="text-white hover:text-gray-300">
                 Moderator Board
               </Link>
-            </li>
-          )}
+            )}
 
-          {showAdminBoard && (
-            <li className="nav-item">
-              <Link to={"/admin"} className="nav-link">
+            {showAdminBoard && (
+              <Link to={"/admin"} className="text-white hover:text-gray-300">
                 Admin Board
               </Link>
-            </li>
-          )}
+            )}
 
-          {currentUser && (
-            <li className="nav-item">
-              <Link to={"/user"} className="nav-link">
+            {currentUser && (
+              <Link to={"/user"} className="text-white hover:text-gray-300">
                 User
               </Link>
-            </li>
-          )}
+            )}
+          </div>
+
+          <div className="flex space-x-4">
+            {currentUser ? (
+              <>
+                <Link to={"/profile"} className="text-white hover:text-gray-300">
+                  {currentUser.username}
+                </Link>
+                <a
+                  href="/login"
+                  className="text-white hover:text-gray-300"
+                  onClick={logOut}
+                >
+                  LogOut
+                </a>
+              </>
+            ) : (
+              <>
+                <Link to={"/login"} className="text-white hover:text-gray-300">
+                  Login
+                </Link>
+                <Link to={"/register"} className="text-white hover:text-gray-300">
+                  Sign Up
+                </Link>
+              </>
+            )}
+          </div>
         </div>
+      </nav> */}
 
-        {currentUser ? (
-          <div className="navbar-nav ml-auto">
-            <li className="nav-item">
-              <Link to={"/profile"} className="nav-link">
-                {currentUser.username}
-              </Link>
-            </li>
-            <li className="nav-item">
-              <a href="/login" className="nav-link" onClick={logOut}>
-                LogOut
-              </a>
-            </li>
-          </div>
-        ) : (
-          <div className="navbar-nav ml-auto">
-            <li className="nav-item">
-              <Link to={"/login"} className="nav-link">
-                Login
-              </Link>
-            </li>
-
-            <li className="nav-item">
-              <Link to={"/register"} className="nav-link">
-                Sign Up
-              </Link>
-            </li>
-          </div>
-        )}
-      </nav>
-
-      <div className="container mt-3">
+      <div>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
@@ -125,7 +115,6 @@ const App = () => {
           <Route path="/admin" element={<BoardAdmin />} />
         </Routes>
       </div>
-
     </div>
   );
 };
