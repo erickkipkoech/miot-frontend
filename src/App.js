@@ -8,9 +8,9 @@ import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Home from "./components/Users/Home";
 import Profile from "./components/auth/Profile";
-import BoardUser from "./components/Users/BoardUser";
-import BoardModerator from "./components/Users/BoardModerator";
-import BoardAdmin from "./components/Users/BoardAdmin";
+import BoardUser from "./components/Users/RolesBased/BoardUser";
+import BoardModerator from "./components/Users/RolesBased/BoardModerator";
+import BoardAdmin from "./components/Users/RolesBased/BoardAdmin";
 
 import { logout } from "./actions/auth";
 import { clearMessage } from "./actions/messages";

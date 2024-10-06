@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from "react";
 import userService from "../../services/user.service";
+import { useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
 
 const Home = () => {
     const [content, setContent] = useState("");
 
+    const { isLoggedIn, user } = useSelector((state) => state.authReducer || { isLoggedIn: false, user: null });
+
+
     useEffect(() => {
-        userService.getPublicContent().then(
+        if(isLoggedIn){
+        userService.getHomePageContent().then(
             (response) => { setContent(response.data) },
             (error) => {
                 const _content =
@@ -16,7 +22,11 @@ const Home = () => {
                 setContent(_content);
             }
         )
+    }
     }, []);
+    if(!isLoggedIn){
+        return <Navigate to={"/login"}/>
+    }
     return (
         <div className="container">
             <header className="jumbotron">

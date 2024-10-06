@@ -2,8 +2,9 @@ import axios from "axios";
 import API_URL from "../constants/constants";
 
 //const API_URL = process.env.REACT_APP_API_URL;
-axios.defaults.baseURL = 'https://localhost:7291/api/MiotAuthenticate';
+axios.defaults.baseURL = 'https://localhost:7291/api/';
 
+let res = null;
 
 const register = async (username, email, password) => {
     return await axios
@@ -17,14 +18,15 @@ const register = async (username, email, password) => {
 
 const login = async (username, password) => {
     const response = await axios
-        .post("/login", {
+        .post("MiotAuthenticate/login", {
             username,
             password
         });
     if (response.data.response) {
-        localStorage.setItem("user", JSON.stringify(response.data));
+        res = response.data;
+        localStorage.setItem("user", JSON.stringify(res));
     }
-    return response;
+    return res;
 };
 
 const logout = () => {

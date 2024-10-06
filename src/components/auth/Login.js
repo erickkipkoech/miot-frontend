@@ -45,7 +45,7 @@ const Login = (props) => {
         if (checkBtn.current.context._errors.length === 0) {
             dispatch(login(username, password))
                 .then(() => {
-                    navigate("/profile");
+                    navigate("/home");
                     //window.location.reload();
                 })
                 .catch(() => {
@@ -57,7 +57,7 @@ const Login = (props) => {
 
     };
     if (isLoggedIn) {
-        return <Navigate to={"/profile"} />;
+        return <Navigate to={"/home"} />;
     }
     const backgroundImage = require('../../assets/sign_in.png');
     const signInAvatar = require('../../assets/app_logo.ico');
@@ -75,7 +75,7 @@ const Login = (props) => {
                     <div className="form-group mb-4 relative">
                         <span className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                             {/* Username Icon */}
-                            <svg className="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <svg className="h-5 w-5 text-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                 <path d="M10 12a5 5 0 100-10 5 5 0 000 10zm-4.5 6a7.5 7.5 0 019 0l-9 0z" />
                             </svg>
                         </span>
@@ -95,7 +95,7 @@ const Login = (props) => {
                         <div>
                             <span className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                 {/* Password Icon */}
-                                <svg className="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <svg className="h-5 w-5 text-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                     <path d="M5 8V6a5 5 0 0110 0v2h1a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2v-8a2 2 0 012-2h1zm2 0h6V6a3 3 0 00-6 0v2z" />
                                 </svg>
                             </span>
@@ -114,11 +114,11 @@ const Login = (props) => {
                             >
                                 {/* View/Hide Icon */}
                                 {showPassword ? (
-                                    <svg className="h-5 w-5 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <svg className="h-5 w-5 text-blue" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0zm2.28 5.28a9 9 0 01-12.56 0M2.458 12C3.732 7.943 7.82 5 12 5c4.18 0 8.268 2.943 9.542 7-1.274 4.057-5.362 7-9.542 7-2.83 0-5.385-1.085-7.28-2.72" />
                                     </svg>
                                 ) : (
-                                    <svg className="h-5 w-5 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <svg className="h-5 w-5 text-blue" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.875 18.825A9 9 0 014.243 6.243M9 3.938A9 9 0 0118.825 13.875m0-4.95A9 9 0 019.075 4.075M9.172 9.172a4 4 0 015.656 5.656" />
                                     </svg>
                                 )}
