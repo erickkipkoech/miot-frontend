@@ -12,3 +12,6 @@ export const CLEAR_MESSAGE = "CLEAR_MESSAGE";
 //users
 export const GET_HOMEPAGE_CONTENT = "GET_HOMEPAGE_CONTENT";
 export const GET_USER_PROFILE = "GET_USER_PROFILE";
+
+//GENERAL TYPES
+export const LOAD_FAIL = "LOAD_FAIL";

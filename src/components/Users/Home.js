@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import userService from "../../services/user.service";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
+import userService from "../../services/user.service";
 
 const Home = () => {
     const [content, setContent] = useState("");
@@ -11,7 +11,7 @@ const Home = () => {
 
     useEffect(() => {
         if(isLoggedIn){
-        userService.getHomePageContent().then(
+            userService.getHomePageContent().then(
             (response) => { setContent(response.data) },
             (error) => {
                 const _content =
@@ -30,7 +30,7 @@ const Home = () => {
     return (
         <div className="container">
             <header className="jumbotron">
-                <h3>{content}</h3>
+                <h3>{content.response}</h3>
             </header>
         </div>
     );

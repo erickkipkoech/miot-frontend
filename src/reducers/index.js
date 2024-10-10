@@ -6,5 +6,4 @@ import userReducer from "./userReducer";
 export default combineReducers({
     authReducer,
     messageReducer,
-    userReducer,
 });
